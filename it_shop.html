@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html land="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <link rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9677df9900.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title Librería Libre></title>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Site css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- responsive css -->
+  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- colors css -->
+  <link rel="stylesheet" href="css/colors1.css" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/custom.css" />
+  <!-- wow Animation css -->
+  <link rel="stylesheet" href="css/animate.css" />
+
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-dark newColorPurple text-white">
+    <a href="#" class="navbar-brand">
+      &nbsp;<i class="fas fa-book-open"></i> Librería Libre
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="#" class="nav-link" style="color: white;">Home</a>
+    <a href="#Libros" class="nav-link" style="color: white;">Libros</a>
+    <a href="Autores" class="nav-link" style="color: white;">Autores</a>
+    <a href="#Promociones" class="nav-link" style="color: white;">Promociones</a>
+
+    <a class="nav-link" href="#"data-toggle="modal" data-target="#SignInModal"style="color: white;"><i class="far fa-user"></i>Iniciar sesión</a>
+
+    <a class="nav-link " href="#"data-toggle="modal" data-target="#SignUpModal"style="color: white;"><i class="far fa-user"></i>Registrarse</a>
+    <!--a class="nav-link" href="#" id="logout"style="color: white;">LogOut</a-->
+    </form>
+  </nav>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: rgb(137, 74, 238);">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="signup-form">
+          <div class="form-group">
+            <input type="text" id="signup-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Registrarse
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal SingIn-->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="text" id="login-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="login-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-block">
+            Iniciar sesión
+          </button>
+          <button type="button" class="btn btn-info btn-block" id="googleLogin">
+            Ingresar con Google
+          </button>
+          <button type="button" class="btn btn-primary btn-block" id="facebookLogin">
+            Ingresar con  Facebook
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- section -->
+<div class="section padding_layout_1 product_list_main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/ayacucho.jpeg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">Ayacucho</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">S/ 15.00</span> – <span class="new_price">S/ 25.00</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/cholitayamazonas.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">Cholita y amazonas</a></h4>
+                </div>
+                <div class="product_price">
+                  <p><span class="old_price">S/ 24.99</span><span class="new_price"> S/ 12.49</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/duendesyotrostraviesos.jpeg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">Duendes y otros traviesos</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">S/ 24.99</span><span class="new_price"> S/ 12.49</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/elcaballerocarmelo.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">El caballero Carmelo</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/laalforjadeljorobado.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">La alforja del jorobado</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">S/ 15.00</span> – <span class="new_price">S/ 25.00</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/elpueblodelsol.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">el pueblo del sol</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">S/ 24.99</span><span class="new_price"> S/ 12.49</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/popularandino.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">Popular andino</a></h4>
+                </div>
+
+                <div class="product_price">
+                  <p><span class="old_price">S/ 24.99</span><span class="new_price"> S/ 12.49</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="images/Libros/elpueblodelsol.jpg" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="it_shop_detail.html">El pueblo del sol</a></h4>
+                </div>
+                <div class="product_price">
+                  <p><span class="old_price">S/ 15.00</span> – <span class="new_price">S/ 25.00</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="side_bar">
+          <div class="side_bar_blog">
+            <h4>SEARCH</h4>
+            <div class="side_bar_search">
+              <div class="input-group stylish-input-group">
+                <input class="form-control" placeholder="Search" type="text">
+                <span class="input-group-addon">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span> </div>
+            </div>
+          </div>
+          <div class="side_bar_blog">
+            <h4>Ver nuevos libros</h4>
+            <p>Aqui podremos ver las nuevas obras literarias de nuestros autores...</p>
+            <a class="btn sqaure_bt" href="#">Empezar</a> </div>
+
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end section -->
+<!-- footer -->
+<footer class="footer_style_2">
+
+      <div class="cprt">
+        <p>Libreria libre © Copyrights 2021</p>
+      </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- menu js -->
+<script src="js/menumaker.js"></script>
+<!-- wow animation -->
+<script src="js/wow.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<script>
+
+  // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+  // Australia.
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: {lat: 35.645037, lng: 80.880224},
+      styles: [
+        {
+          elementType: 'geometry',
+          stylers: [{color: '#fefefe'}]
+        },
+        {
+          elementType: 'labels.icon',
+          stylers: [{visibility: 'off'}]
+        },
+        {
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#616161'}]
+        },
+        {
+          elementType: 'labels.text.stroke',
+          stylers: [{color: '#f5f5f5'}]
+        },
+        {
+          featureType: 'administrative.land_parcel',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#bdbdbd'}]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'geometry',
+          stylers: [{color: '#eeeeee'}]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#757575'}]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'geometry',
+          stylers: [{color: '#e5e5e5'}]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#9e9e9e'}]
+        },
+        {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [{color: '#eee'}]
+        },
+        {
+          featureType: 'road.arterial',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#3d3523'}]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'geometry',
+          stylers: [{color: '#eee'}]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#616161'}]
+        },
+        {
+          featureType: 'road.local',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#9e9e9e'}]
+        },
+        {
+          featureType: 'transit.line',
+          elementType: 'geometry',
+          stylers: [{color: '#e5e5e5'}]
+        },
+        {
+          featureType: 'transit.station',
+          elementType: 'geometry',
+          stylers: [{color: '#000'}]
+        },
+        {
+          featureType: 'water',
+          elementType: 'geometry',
+          stylers: [{color: '#c8d7d4'}]
+        },
+        {
+          featureType: 'water',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#b1a481'}]
+        }
+      ]
+    });
+
+    var image = 'images/it_service/location_icon_map_cont.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 35.645037, lng: 80.880224},
+      map: map,
+      icon: image
+    });
+  }
+</script>
+<!-- google map js -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+<!-- end google map js -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!--Boostrap SCRIPTS-->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+<!--FIREBASE SCRIPTS-->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!--Importamos Para la Autentificación-->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<!--Importamos Para Almacenar informacion-->
+
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+<!--Importamos Para el almacenamiento de Archivos-->
+
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDMZY3ogoVcOcXZsP5yj4MulZEXjChFumM",
+    authDomain: "fbproyecto-c4c36.firebaseapp.com",
+    projectId: "fbproyecto-c4c36",
+    storageBucket: "fbproyecto-c4c36.appspot.com",
+    messagingSenderId: "444312263936",
+    appId: "1:444312263936:web:68402c8d4f72bcc79267e5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const fs= firebase.firestore();
+
+  // Obtener Elementos
+  var uploader = document.getElementById('uploader');
+  var fileButton = document.getElementById('fileButton');
+
+  var storageService = firebase.storage();
+
+  // Selección archivo
+  fileButton.addEventListener('change', function(e) {
+    //Obtener archivo
+    var file = e.target.files[0];
+
+    // Create a storage reference from our storage service
+    var storageRef = storageService.ref('Books').child(file.name);
+
+    // Subir archivo
+    var task = storageRef.put(file);
+
+    // Actualizar barra progreso
+    task.on('state_changed',
+
+            function progress(snapshot) {
+              var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              uploader.value = percentage;
+            },
+
+            function error(err) {
+
+            },
+
+            function complete() {
+
+
+            }
+
+    )});
+
+
+</script>
+
+
+<!--CUSTOM CODE-->
+<script src="main.js"></script>
+</body>
+</html>
