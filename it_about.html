@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Libreria libre</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!-- Site css -->
+<link rel="stylesheet" href="css/style.css" />
+<!-- responsive css -->
+<link rel="stylesheet" href="css/responsive.css" />
+<!-- colors css -->
+<link rel="stylesheet" href="css/colors1.css" />
+<!-- custom css -->
+<link rel="stylesheet" href="css/custom.css" />
+<!-- wow Animation css -->
+<link rel="stylesheet" href="css/animate.css" />
+<!-- HEADER MORADO-->
+<link rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/9677df9900.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body id="default_theme" class="it_service about">
+
+<!-- header -->
+<header>
+  <nav class="navbar navbar-dark newColorPurple text-white">
+
+    <!-- menu start -->
+    <div class="menu_side">
+      <div id="navbar_menu">
+
+        <ul class="first-ul">
+          <li><a href="#" class="navbar-brand">
+            <h1 class="page-title" style="color: #FFFFFF"><i size="" class="fas fa-book-open"></i> Librería Libre </h1>
+          </a>
+          </li>
+          <li>
+            <a href="index.html" >Home</a>
+          </li>
+          <li>
+            <a href="it_about.html">Acerca de nosotros</a>
+          </li>
+
+          </li>
+          <li> <a href="it_shop.html"  >Libros</a>
+            <ul>
+              <li><a href="#">Historias</a></li>
+              <li><a href="#">Poemas</a></li>
+              <li><a href="#">Cuentos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href="#" data-toggle="modal" data-target="#SignInModal" ><i class="far fa-user"></i> Iniciar sesión</a>
+          </li>
+          <li>
+            <a  href="#" data-toggle="modal" data-target="#SignUpModal" ><i class="far fa-user"></i> Registrarse</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- menu end -->
+    </nav>
+</header>
+  <!-- end header top -->
+
+<!-- Modal -->
+<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: rgb(137, 74, 238);">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="signup-form">
+          <div class="form-group">
+            <input type="text" id="signup-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Registrarse
+          </button>
+          <a role="button"
+             style="text-align: center; color: #002752; padding: 8px" data-toggle="modal" data-target="#SignInModal">O Iniciar sesión</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal SingIn-->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="text" id="login-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="login-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-block">
+            Iniciar sesión
+          </button>
+          <button type="button" class="btn btn-info btn-block" id="googleLogin">
+            Ingresar con Google
+          </button>
+          <button type="button" class="btn btn-primary btn-block" id="facebookLogin">
+            Ingresar con  Facebook
+          </button>
+        </form>
+        <br><!-- <br> -->
+        <a role="button"
+           style="text-align: center; color: #002752; padding: 8px" data-toggle="modal" data-target="#SignUpModal">O Registrarte</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- section -->
+<div class="section padding_layout_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="main_heading text_align_center">
+            <h2>Curso: Cloud Computing </h2>
+            <p class="large">Docente: Diego Alonso Iquira Becerra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row about_blog">
+      <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
+        <div class="full text_align_left">
+          <h3>¿Quienes somos?</h3>
+          <p>Alumnos de curso de Cloud computing, desarrollamos una aplicacion web de una libreria online que nos va a permitir la venta y compra de libros, llevando a cabo todos los conocimientos aprendidos en clase asi como las aplicaciones.</p>
+          
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 about_feature_img padding_right_0">
+        <div class="full text_align_center"> <img class="img-responsive" src="images/it_service/post-06.jpg" alt="#" /> </div>
+      </div>
+    </div>    
+  </div>
+</div>
+<!-- end section -->
+
+<div class="section padding_layout_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="main_heading text_align_left">
+            <h2>Integrantes</h2>
+            <p class="large">Estudiantes de Ciencia de la computacion de la Universidad Nacional de San Agustin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="images/it_service/team-member-1.jpg" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Thales Panibra Mamani</h4>
+          </div>
+          <div class="team_feature_social">
+            <div class="social_icon">
+              <ul class="list-inline">
+                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="images/it_service/team-member-2.jpg" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Syomira Chambi Apaza</h4>
+          </div>
+          <div class="team_feature_social">
+            <div class="social_icon">
+              <ul class="list-inline">
+                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="images/it_service/team-member-3.jpg" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Williams Nifla Catasi</h4>
+          </div>
+          <div class="team_feature_social">
+            <div class="social_icon">
+              <ul class="list-inline">
+                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="images/it_service/team-member-1.jpg" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Shirley Oxa Cacya</h4>
+          </div>
+          <div class="team_feature_social">
+            <div class="social_icon">
+              <ul class="list-inline">
+                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="footer_style_2">
+
+  <div class="cprt">
+    <p>Libreria libre © Copyrights 2021</p>
+  </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- menu js -->
+<script src="js/menumaker.js"></script>
+<!-- wow animation -->
+<script src="js/wow.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<script>
+
+      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+      // Australia.
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: 40.645037, lng: -73.880224},
+		  styles: [
+               {
+                 elementType: 'geometry',
+                 stylers: [{color: '#fefefe'}]
+               },
+               {
+                 elementType: 'labels.icon',
+                 stylers: [{visibility: 'off'}]
+               },
+               {
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#616161'}]
+               },
+               {
+                 elementType: 'labels.text.stroke',
+                 stylers: [{color: '#f5f5f5'}]
+               },
+               {
+                 featureType: 'administrative.land_parcel',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#bdbdbd'}]
+               },
+               {
+                 featureType: 'poi',
+                 elementType: 'geometry',
+                 stylers: [{color: '#eeeeee'}]
+               },
+               {
+                 featureType: 'poi',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#757575'}]
+               },
+               {
+                 featureType: 'poi.park',
+                 elementType: 'geometry',
+                 stylers: [{color: '#e5e5e5'}]
+               },
+               {
+                 featureType: 'poi.park',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#9e9e9e'}]
+               },
+               {
+                 featureType: 'road',
+                 elementType: 'geometry',
+                 stylers: [{color: '#eee'}]
+               },
+               {
+                 featureType: 'road.arterial',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#3d3523'}]
+               },
+               {
+                 featureType: 'road.highway',
+                 elementType: 'geometry',
+                 stylers: [{color: '#eee'}]
+               },
+               {
+                 featureType: 'road.highway',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#616161'}]
+               },
+               {
+                 featureType: 'road.local',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#9e9e9e'}]
+               },
+               {
+                 featureType: 'transit.line',
+                 elementType: 'geometry',
+                 stylers: [{color: '#e5e5e5'}]
+               },
+               {
+                 featureType: 'transit.station',
+                 elementType: 'geometry',
+                 stylers: [{color: '#000'}]
+               },
+               {
+                 featureType: 'water',
+                 elementType: 'geometry',
+                 stylers: [{color: '#c8d7d4'}]
+               },
+               {
+                 featureType: 'water',
+                 elementType: 'labels.text.fill',
+                 stylers: [{color: '#b1a481'}]
+               }
+             ]
+		});
+
+        var image = 'images/it_service/location_icon_map_cont.png';
+        var beachMarker = new google.maps.Marker({
+          position: {lat: 40.645037, lng: -73.880224},
+          map: map,
+          icon: image
+        });
+      }
+    </script>
+<!-- google map js -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+<!-- end google map js -->
+</body>
+</html>
