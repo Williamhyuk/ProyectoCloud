@@ -1,2 +1,0 @@
-# ProyectoCloud
-Librería Libre
