@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Libreria libre</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!-- Site css -->
+<link rel="stylesheet" href="css/style.css" />
+<!-- responsive css -->
+<link rel="stylesheet" href="css/responsive.css" />
+<!-- colors css -->
+<link rel="stylesheet" href="css/colors1.css" />
+<!-- custom css -->
+<link rel="stylesheet" href="css/custom.css" />
+<!-- wow Animation css -->
+<link rel="stylesheet" href="css/animate.css" />
+<!-- zoom effect -->
+<link rel='stylesheet' href='css/hizoom.css'>
+<!-- end zoom effect -->
+<!-- HEADER MORADO-->
+<link rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/9677df9900.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body id="default_theme" class="it_shop_detail">
+<!-- header -->
+<header>
+  <nav class="navbar navbar-dark newColorPurple text-white">
+
+    <!-- menu start -->
+    <div class="menu_side">
+      <div id="navbar_menu">
+
+        <ul class="first-ul">
+          <li><a href="#" class="navbar-brand">
+            <h1 class="page-title" style="color: #FFFFFF"><i size="" class="fas fa-book-open"></i> Librería Libre </h1>
+          </a>
+          </li>
+          <li>
+            <a href="index.html" >Home</a>
+          </li>
+          <li>
+            <a href="#"  >Acerca de nosotros</a>
+          </li>
+
+          </li>
+          <li> <a href="it_shop.html"  >Libros</a>
+            <ul>
+              <li><a href="#">Historias</a></li>
+              <li><a href="#">Poemas</a></li>
+              <li><a href="#">Cuentos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href="#" data-toggle="modal" data-target="#SignInModal" ><i class="far fa-user"></i> Iniciar sesión</a>
+          </li>
+          <li>
+            <a  href="#" data-toggle="modal" data-target="#SignUpModal" ><i class="far fa-user"></i> Registrarse</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- menu end -->
+  </nav>
+</header>
+<!-- end header -->
+
+<!-- Modal -->
+<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: rgb(137, 74, 238);">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="signup-form">
+          <div class="form-group">
+            <input type="text" id="signup-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Registrarse
+          </button>
+          <a role="button"
+             style="text-align: center; color: #002752; padding: 8px" data-toggle="modal" data-target="#SignInModal">O Iniciar sesión</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal SingIn-->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="text" id="login-email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="login-password" class="form-control" placeholder="Contraseña" required>
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-block">
+            Iniciar sesión
+          </button>
+          <button type="button" class="btn btn-info btn-block" id="googleLogin">
+            Ingresar con Google
+          </button>
+          <button type="button" class="btn btn-primary btn-block" id="facebookLogin">
+            Ingresar con  Facebook
+          </button>
+        </form>
+        <br><!-- <br> -->
+        <a role="button"
+           style="text-align: center; color: #002752; padding: 8px" data-toggle="modal" data-target="#SignUpModal">O Registrarte</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- section -->
+<div class="section padding_layout_1 product_detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-xl-6 col-lg-12 col-md-12">
+            <div class="product_detail_feature_img hizoom hi2">
+              <div class='hizoom hi2'> <img src="images/it_service/Labellaylabestia.jpg" alt="#" /> </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
+            <div class="product-heading">
+              <h2>La bella y la bestia</h2>
+            </div>
+            <div class="product-detail-side"> <span class="new-price">S/ 20.00</span> </div>
+            <div class="detail-contant">
+              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. 
+                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.<br>
+                <span class="stock">2 in stock</span> </p>
+              <form class="cart" method="post" action="it_cart.html">
+                <div class="quantity">
+                  <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
+                </div>
+                <button type="submit" class="btn sqaure_bt">Agregar al carro</button>
+              </form>
+            </div>
+            <div class="share-post"> <a href="#" class="share-text"> Compartir</a>
+              <ul class="social_icons">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="full">
+              <div class="tab_bar_section">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#description">Description</a> </li>
+
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div id="description" class="tab-pane active">
+                    <div class="product_desc">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac elementum elit. Morbi eu arcu ipsum. Aliquam lobortis accumsan quam ac convallis. 
+                        Fusce elit mauris, aliquet at odio vel, convallis vehicula nisi. Morbi vitae porttitor dolor. Integer eget metus sem. Nam venenatis mauris vel leo pulvinar, 
+                        id rutrum dui varius. Nunc ac varius quam, non convallis magna. Donec suscipit commodo dapibus.<br>
+                        <br>
+                        Vestibulum et ullamcorper ligula. Morbi bibendum tempor rutrum. 
+                        Pelle tesque auctor purus id molestie ornare.Donec eu lobortis risus. Pellentesque sed aliquam lorem. Praesent pulvinar lorem vel mauris ultrices posuere. 
+                        Phasellus elit ex, gravida a semper ut, venenatis vitae diam. Nullam eget leo massa. Aenean eu consequat arcu, vitae scelerisque quam. Suspendisse risus turpis, 
+                        pharetra a finibus vitae, lobortis et mi.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section -->
+
+<!-- footer -->
+<footer class="footer_style_2">
+
+  <div class="cprt">
+    <p>Libreria libre © Copyrights 2021</p>
+  </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- menu js -->
+<script src="js/menumaker.js"></script>
+<!-- wow animation -->
+<script src="js/wow.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<!-- zoom effect -->
+<script src='js/hizoom.js'></script>
+<script>
+        $('.hi1').hiZoom({
+            width: 300,
+            position: 'right'
+        });
+        $('.hi2').hiZoom({
+            width: 400,
+            position: 'right'
+        });
+    </script>
+<!--FIREBASE SCRIPTS-->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!--Importamos Para la Autentificación-->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<!--Importamos Para Almacenar informacion-->
+
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+<!--Importamos Para el almacenamiento de Archivos-->
+
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB2Jd7ERopns5GHx_eoJqRgESjXNqwl2SU",
+    authDomain: "bfproyecto-af3db.firebaseapp.com",
+    projectId: "bfproyecto-af3db",
+    storageBucket: "bfproyecto-af3db.appspot.com",
+    messagingSenderId: "976614144730",
+    appId: "1:976614144730:web:d40e30b7a8142738d4c3e3",
+    measurementId: "G-N42KFXGVZ9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const fs= firebase.firestore();
+
+  // Obtener Elementos
+  var uploader = document.getElementById('uploader');
+  var fileButton = document.getElementById('fileButton');
+
+  var storageService = firebase.storage();
+  var database = firebase.database();
+  // Selección archivo
+  fileButton.addEventListener('change', function(e) {
+    //Obtener archivo
+    var file = e.target.files[0];
+
+    // Create a storage reference from our storage service
+    var storageRef = storageService.ref('Books').child(file.name);
+
+    // Subir archivo
+    var task = storageRef.put(file);
+
+    // Actualizar barra progreso
+    task.on('state_changed',
+
+            function progress(snapshot) {
+              var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              uploader.value = percentage;
+            },
+
+            function error(err) {
+
+            },
+
+            function complete() {
+
+
+            }
+
+    )});
+
+
+</script>
+
+
+<!--CUSTOM CODE-->
+<script src="main.js"></script>
+</body>
+</html>
