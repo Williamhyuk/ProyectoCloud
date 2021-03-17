@@ -40,12 +40,20 @@ signinForm.addEventListener('submit', e => {
             //clear the form
             signinForm.reset();
             //close the model
-            $('#SignInModal').modal('hide');
-            if ($('.modal-backdrop').is(':visible')) {
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
-            };
-            location = 'index.html'
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user){
+                    
+                        $("#SignInModal").modal("hide");
+                        if ($('.modal-backdrop').is(':visible')) {
+                            $('body').removeClass('modal-open');
+                            $('.modal-backdrop').remove();
+                        };
+                    
+                }
+        
+        
+            });
+            //location = 'index.html'
             console.log('sing in');
 
         })
@@ -67,11 +75,19 @@ googleButton.addEventListener('click', (e) => {
     //console.log('click google')
     e.preventDefault();
     signinForm.reset();
-    $("#SignInModal").modal("hide");
-    if ($('.modal-backdrop').is(':visible')) {
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-    };
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            
+                $("#SignInModal").modal("hide");
+                if ($('.modal-backdrop').is(':visible')) {
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                };
+            
+        }
+
+
+    });
 
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider).then((result) => {
@@ -89,11 +105,19 @@ const facebookButton = document.querySelector('#facebookLogin')
 facebookButton.addEventListener('click', e => {
     e.preventDefault();
     signinForm.reset();
-    $("#SignInModal").modal("hide");
-    if ($('.modal-backdrop').is(':visible')) {
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-    };
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            
+                $("#SignInModal").modal("hide");
+                if ($('.modal-backdrop').is(':visible')) {
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                };
+            
+        }
+
+
+    });
     console.log('Facebook login');
 
     const provider = new firebase.auth.FacebookAuthProvider();
