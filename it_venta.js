@@ -42,18 +42,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     <p>${task.description}</p>
     <p> Precio: ${task.price}</p>
     <p> Stock: ${task.cant}</p>
-    <div>
-      <style>img{height: 200px; width: 200px; border: 2px black;}</style> 
-      <img id="myimg"> <label id="UpProgress"></label> <br> <br>
-    </div>
-
-
-    <script id="MainScript">
-    
-    
-
-    </script>
-
 
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
