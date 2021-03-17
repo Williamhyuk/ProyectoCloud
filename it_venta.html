@@ -2,143 +2,316 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase CRUD</title>
-
-  <!-- BOOTSWATCH -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
-
-  <!-- ANIMATE CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Firebase CRUD</title>
 
 
-  <link rel="stylesheet" type="text/css" href="estilo.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/9677df9900.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<title>Libreria libre</title>
+	<!--librerianueva-->
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Site css -->
+	<link rel="stylesheet" href="css/style.css" />
+	<!-- responsive css -->
+	<link rel="stylesheet" href="css/responsive.css" />
+	<!-- colors css -->
+	<link rel="stylesheet" href="css/colors1.css" />
+	<!-- custom css -->
+	<link rel="stylesheet" href="css/custom.css" />
+	<!-- wow Animation css -->
+	<link rel="stylesheet" href="css/animate.css" />
+
+	<!--FIREBASE SCRIPTS-->
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+
+	<!--Importamos Para la Autentificación-->
+	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+	<!--Importamos Para Almacenar informacion-->
+
+	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+	<!--Importamos Para el almacenamiento de Archivos-->
+
+	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
+
+
+	<!-- BOOTSWATCH -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+
+	<!-- ANIMATE CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 
 </head>
 
 <body class="bg-light">
 
+	<!-- header -->
+	<header>
+		<nav class="navbar navbar-dark newColorPurple text-white">
 
+			<!-- menu start -->
+			<div class="menu_side">
+				<div id="navbar_menu">
 
-  <!-- ADD TASK -->
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
+					<ul class="first-ul">
+						<li><a href="#" class="navbar-brand">
+								<h1 class="page-title" style="color: #FFFFFF"><i size="" class="fas fa-book-open"></i>
+									Librería Libre </h1>
+							</a>
+						</li>
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="#">Acerca de nosotros</a>
+						</li>
 
-            <h1 class="h4" style="text-align: center;">PUBLICA TU LIBRO</h1>
+						</li>
+						<li> <a href="it_shop.html">Libros</a>
+							<ul>
+								<li><a href="#">Historias</a></li>
+								<li><a href="#">Poemas</a></li>
+								<li><a href="#">Cuentos</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" onclick="mainApp.logOut()" id="cerr"><i class="far fa-user" id="cerr" ></i>
+								Cerrar Sesion</a>
+						</li>
 
-            <form id="task-form">
-                
-                <div>
-                    <h6>Suba una imagen para la portada:</h6>
-                </div>
-                <button id="select">Seleccionar imagen</button>
-                <div>
-                    <h6> </h6>
-                </div>
-                <style>img{height: 200px; width: 200px; border: 2px black;}</style>
-                <!-- 
+					</ul>
+				</div>
+
+			</div>
+			<!-- menu end -->
+		</nav>
+	</header>
+	<!-- end header top -->
+	<!-- Modal -->
+	<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Registrarse: </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"
+						style="color: rgb(137, 74, 238);">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="signup-form">
+						<div class="form-group">
+							<input type="text" id="signup-email" class="form-control" placeholder="Correo" required>
+						</div>
+						<div class="form-group">
+							<input type="password" id="signup-password" class="form-control" placeholder="Contraseña"
+								required>
+						</div>
+
+						<button type="submit" class="btn btn-primary">
+							Registrarse
+						</button>
+						<a role="button" style="text-align: center; color: #002752; padding: 8px" data-toggle="modal"
+							data-target="#SignInModal">O Iniciar sesión</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal SingIn-->
+	<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Iniciar sesión: </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="login-form">
+						<div class="form-group">
+							<input type="text" id="login-email" class="form-control" placeholder="Correo" required>
+						</div>
+						<div class="form-group">
+							<input type="password" id="login-password" class="form-control" placeholder="Contraseña"
+								required>
+						</div>
+
+						<button type="submit" class="btn btn-secondary btn-block">
+							Iniciar sesión
+						</button>
+						<button type="button" class="btn btn-info btn-block" id="googleLogin">
+							Ingresar con Google
+						</button>
+						<button type="button" class="btn btn-primary btn-block" id="facebookLogin">
+							Ingresar con Facebook
+						</button>
+						<button type="button" class="btn btn-light btn-block" id="twitterLogin">
+							Ingresar con Twitter
+						</button>
+					</form>
+					<br><!-- <br> -->
+					<a role="button" style="text-align: center; color: #002752; padding: 8px" data-toggle="modal"
+						data-target="#SignUpModal">O Registrarte</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ADD TASK -->
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+
+						<h1 class="h4" style="text-align: center;">PUBLICA TU LIBRO</h1>
+
+						<form id="task-form">
+
+							<div>
+								<h6>Suba una imagen para la portada:</h6>
+							</div>
+							<button id="select">Seleccionar imagen</button>
+							<div>
+								<h6> </h6>
+							</div>
+							<style>
+								img {
+									height: 200px;
+									width: 200px;
+									border: 2px black;
+								}
+							</style>
+							<!-- 
                 <input id="namebox" type="text"> <br> <br> -->
-                
-            	
-                <img id="myimg"> <label id="UpProgress"></label> <br> <br>
+
+
+							<img id="myimg"> <label id="UpProgress"></label> <br> <br>
 
 
 
-                <div class="form-group">
-                    <input type="text" id="task-title" class="form-control" class="Task Title" placeholder="Título"
-                    autofocus required>
-                </div>
-                <div class="form-group">
-                    <textarea id="task-description" rows="3" class="form-control" placeholder="Descripción" required></textarea>
-                </div>
+							<div class="form-group">
+								<input type="text" id="task-title" class="form-control" class="Task Title"
+									placeholder="Título" autofocus required>
+							</div>
+							<div class="form-group">
+								<textarea id="task-description" rows="3" class="form-control" placeholder="Descripción"
+									required></textarea>
+							</div>
 
-                <div class="form-group">
-                    <input type="number" id="task-price" class="form-control" class="Task Price" placeholder="Precio"
-                    autofocus required>
-                </div>
-                <div class="form-group">
-                    <input type="number" id="task-cant" class="form-control" class="Task Cant" placeholder="Número de unidades"
-                    autofocus required>
-                </div>
+							<div class="form-group">
+								<input type="number" id="task-price" class="form-control" class="Task Price"
+									placeholder="Precio" autofocus required>
+							</div>
+							<div class="form-group">
+								<input type="number" id="task-cant" class="form-control" class="Task Cant"
+									placeholder="Número de unidades" autofocus required>
+							</div>
 
 
-                
 
-                
-                
-                <!-- <button id="retrieve">Visualizar</button> -->
 
-                <div>
-                    <h6>   </h6>
-                </div>
 
-                <div>
-                <h6>   </h6>
-            </div>
 
-            <div>
-                <h6>Mostraremos una aproximación de tu ubicación para ayudar a los compradores cercanos a verla y así aumentar tus posibilidades de venta:</h6>
-            </div>
-            
-            <!--    
+							<!-- <button id="retrieve">Visualizar</button> -->
+
+							<div>
+								<h6> </h6>
+							</div>
+
+							<div>
+								<h6> </h6>
+							</div>
+
+							<div>
+								<h6>Mostraremos una aproximación de tu ubicación para ayudar a los compradores cercanos
+									a verla y así aumentar tus posibilidades de venta:</h6>
+							</div>
+
+							<!--    
             <div id="map"></div>
 			<script src="script.js"></script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrmCVYLrQnozRu7Bafy8Na1Vog1isqA30&callback=iniciarMap"></script>
 			-->
 
 
-			<div class="container">
-	        <div class="row justify-content-center">
-	            <div class="col-md-8 col-md-offset-2" align="center">
-	                <div style="text-align: left;margin-top: 30px;">
-	                    <b>Latitud: </b><span id="latitude"></span><br>
-	                    <b>Longitud: </b><span id="longitude"></span><br>
-	                </div>
-	                	<div id="map">
-	                    	<iframe frameborder="0" style="border:0; width: 100%;height:300px;" src="" ></iframe>
-	                	</div>
-	            	</div>
-	        	</div>
-	    	</div>
+							<div class="container">
+								<div class="row justify-content-center">
+									<div class="col-md-8 col-md-offset-2" align="center">
+										<div style="text-align: left;margin-top: 30px;">
+											<b>Latitud: </b><span id="latitude"></span><br>
+											<b>Longitud: </b><span id="longitude"></span><br>
+										</div>
+										<div id="map">
+											<iframe frameborder="0" style="border:0; width: 100%;height:300px;"
+												src=""></iframe>
+										</div>
+									</div>
+								</div>
+							</div>
 
-	    	<script
-	            src="https://code.jquery.com/jquery-3.4.1.min.js"
-	            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	            crossorigin="anonymous"></script>
-	    	<script>
-	        $(document).ready(function () {
-	            if ("geolocation" in navigator) {
-	                navigator.geolocation.getCurrentPosition(function (p) {
-	                    showUserDetails(p.coords.latitude, p.coords.longitude);
-	                }, function (e) {
-	                    ipLookup();
-	                });
-	            } else
-	                ipLookup();
-	        });
+							<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+								integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+								crossorigin="anonymous"></script>
+							<script>
+								$(document).ready(function () {
+									if ("geolocation" in navigator) {
+										navigator.geolocation.getCurrentPosition(function (p) {
+											showUserDetails(p.coords.latitude, p.coords.longitude);
+										}, function (e) {
+											ipLookup();
+										});
+									} else
+										ipLookup();
+								});
 
-        function showUserDetails(latitude, longitude, additional) {
-            var position = latitude + "," + longitude;
+								function showUserDetails(latitude, longitude, additional) {
+									var position = latitude + "," + longitude;
 
-            $("#latitude").text(latitude);
-            $("#longitude").text(longitude);
+									$("#latitude").text(latitude);
+									$("#longitude").text(longitude);
 
-            var url = "https://www.google.com/maps/embed/v1/view?center="+position+"&zoom=12&key=AIzaSyCrmCVYLrQnozRu7Bafy8Na1Vog1isqA30";
-            $("iframe").attr('src', url);
-        }
+									var url = "https://www.google.com/maps/embed/v1/view?center=" + position + "&zoom=12&key=AIzaSyCrmCVYLrQnozRu7Bafy8Na1Vog1isqA30";
+									$("iframe").attr('src', url);
+								}
 
-        function ipLookup() {
-            $.get('https://api.userinfo.io/userinfos', function (r) {
-               showUserDetails(r.position.latitude, r.position.longitude, r);
-            });
-        }
-    </script>
+								function ipLookup() {
+									$.get('https://api.userinfo.io/userinfos', function (r) {
+										showUserDetails(r.position.latitude, r.position.longitude, r);
+									});
+								}
+							</script>
 
-				<!-- <select class="custom-select" id="task-cat">
+							<!-- <select class="custom-select" id="task-cat">
 				<option selected>Categoría principal</option>
 				<option value="1">Tecnología</option>
 				<option value="2">Infantil</option>
@@ -147,93 +320,90 @@
 				</select> -->
 
 
-				<button class="btn btn-primary" id="btn-task-form">Publicar</button>
-				
-
-
-                <script id="MainScript">
-					var ImgName, ImgUrl;
-					var files = [];
-					var reader;
+							<button class="btn btn-primary" id="btn-task-form">Publicar</button>
 
 
 
-					document.getElementById("select").onclick=function(e){
-						var input = document.createElement('input');
-						input.type = 'file';
-						input.onchange = e => {
-							files = e.target.files;
-							reader = new FileReader();
-							reader.onload = function(){
-								document.getElementById("myimg").src = reader.result;
-							}
-							reader.readAsDataURL(files[0]);
-						}
-						input.click();
-					}
-
-					
-
-					document.getElementById("btn-task-form").onclick = function(){
-						ImgName = document.getElementById('task-title').value;
-						var uploadTask = firebase.storage().ref('Images/'+ImgName+".jpg").put(files[0]);
-						uploadTask.on('state_changed',function(snapshot){
-							var progress = (snapshot.bytesTransferred / snapshot.totalBytes)*100;
-							document.getElementById('UpProgress').innerHTML = 'Progreso: '+progress+'%';
-						},
-
-						function(error) {
-							alert('Hubo un error con la imagen de la portada.');
-						},
-
-						function(){
-							uploadTask.snapshot.ref.getDownloadURL().then(function(url){
-								ImgUrl = url;
-
-								firebase.database().ref('Pictures/'+ImgName).set({
-									Name: ImgName,
-									Link:ImgUrl
-								});
-							alert('La imagen de la portada fue cargada correctamente.');
-							}
-							);
-						});
-					}
-
-					
-					  
-
-					/*document.getElementById('retrieve').onclick = function(){
-						ImgName = document.getElementById('namebox').value;
-						firebase.database().ref('Pictures/'+ImgName).on('value',function(snapshot){
-							document.getElementById('myimg').src = snapshot.val().Link;
-						});
-					}*/
-
-				</script>
+							<script id="MainScript">
+								var ImgName, ImgUrl;
+								var files = [];
+								var reader;
 
 
 
-			
-              	
-            </form>
+								document.getElementById("select").onclick = function (e) {
+									var input = document.createElement('input');
+									input.type = 'file';
+									input.onchange = e => {
+										files = e.target.files;
+										reader = new FileReader();
+										reader.onload = function () {
+											document.getElementById("myimg").src = reader.result;
+										}
+										reader.readAsDataURL(files[0]);
+									}
+									input.click();
+								}
+
+
+
+								document.getElementById("btn-task-form").onclick = function () {
+									ImgName = document.getElementById('task-title').value;
+									var uploadTask = firebase.storage().ref('Images/' + ImgName + ".jpg").put(files[0]);
+									uploadTask.on('state_changed', function (snapshot) {
+										var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+										document.getElementById('UpProgress').innerHTML = 'Progreso: ' + progress + '%';
+									},
+
+										function (error) {
+											alert('Hubo un error con la imagen de la portada.');
+										},
+
+										function () {
+											uploadTask.snapshot.ref.getDownloadURL().then(function (url) {
+												ImgUrl = url;
+
+												firebase.database().ref('Pictures/' + ImgName).set({
+													Name: ImgName,
+													Link: ImgUrl
+												});
+												alert('La imagen de la portada fue cargada correctamente.');
+											}
+											);
+										});
+								}
 
 
 
 
-           
+								/*document.getElementById('retrieve').onclick = function(){
+									ImgName = document.getElementById('namebox').value;
+									firebase.database().ref('Pictures/'+ImgName).on('value',function(snapshot){
+										document.getElementById('myimg').src = snapshot.val().Link;
+									});
+								}*/
+
+							</script>
 
 
-          </div>
-        </div>
-      </div>
-      <!-- Tasks List -->
-      <div class="col-md-6" id="tasks-container"></div>
-    </div>
-  </div>
 
 
 
+						</form>
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- Tasks List -->
+			<div class="col-md-6" id="tasks-container"></div>
+		</div>
+	</div>
 
 
 
@@ -251,36 +421,44 @@
 
 
 
-  <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> -->
 
-  <!-- FIREBASE -->
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> -->
+
+	<!-- FIREBASE -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
 	<!-- TODO: Add SDKs for Firebase products that you want to use
 	     https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
 	<script>
-	  // Your web app's Firebase configuration
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyDMZY3ogoVcOcXZsP5yj4MulZEXjChFumM",
-	    authDomain: "fbproyecto-c4c36.firebaseapp.com",
-	    databaseURL: "https://fbproyecto-c4c36-default-rtdb.firebaseio.com",
-	    projectId: "fbproyecto-c4c36",
-	    storageBucket: "fbproyecto-c4c36.appspot.com",
-	    messagingSenderId: "444312263936",
-	    appId: "1:444312263936:web:68402c8d4f72bcc79267e5"
-	  };
-	  // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyDMZY3ogoVcOcXZsP5yj4MulZEXjChFumM",
+			authDomain: "fbproyecto-c4c36.firebaseapp.com",
+			databaseURL: "https://fbproyecto-c4c36-default-rtdb.firebaseio.com",
+			projectId: "fbproyecto-c4c36",
+			storageBucket: "fbproyecto-c4c36.appspot.com",
+			messagingSenderId: "444312263936",
+			appId: "1:444312263936:web:68402c8d4f72bcc79267e5"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		var app_fireBase = {};
+		const auth = firebase.auth();
+		app_fireBase = firebase;
 	</script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  
-  <!-- CUSTOM CODE -->
-  <script src="it_venta.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+	<!-- CUSTOM CODE -->
+	<script src="login.js"></script>
+	<script src="it_venta.js"></script>
 </body>
 
 </html>
-

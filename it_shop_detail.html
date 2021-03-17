@@ -28,6 +28,27 @@
 <!-- zoom effect -->
 <link rel='stylesheet' href='css/hizoom.css'>
 <!-- end zoom effect -->
+
+<!--FIREBASE SCRIPTS-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!--Importamos Para la Autentificación-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+    <!--Importamos Para Almacenar informacion-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-database.js"></script>
+    <!--Importamos Para el almacenamiento de Archivos-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 <!-- HEADER MORADO-->
 <link rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -66,11 +87,15 @@
             </ul>
           </li>
           <li>
-            <a  href="#" data-toggle="modal" data-target="#SignInModal" ><i class="far fa-user"></i> Iniciar sesión</a>
-          </li>
-          <li>
-            <a  href="#" data-toggle="modal" data-target="#SignUpModal" ><i class="far fa-user"></i> Registrarse</a>
-          </li>
+            <a  href="#" data-toggle="modal" data-target="#SignInModal" id="inic"><i class="far fa-user"></i> Iniciar sesión</a>
+        </li>
+        <li>
+            <a  href="#" data-toggle="modal" data-target="#SignUpModal" id="nuev"><i class="far fa-user"></i> Registrarse</a>
+        </li>
+        <li>
+          <a href="#" onclick="mainApp.logOut()" id="cerr"><i class="far fa-user" id="cerr" ></i>
+              Cerrar Sesion</a>
+      </li>
         </ul>
       </div>
 
@@ -239,23 +264,6 @@
             position: 'right'
         });
     </script>
-<!--FIREBASE SCRIPTS-->
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<!--Importamos Para la Autentificación-->
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
-<!--Importamos Para Almacenar informacion-->
-
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
-
-<!--Importamos Para el almacenamiento de Archivos-->
-
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -270,6 +278,10 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  
+    var app_fireBase = {};
+	app_fireBase = firebase;
+    
   const auth = firebase.auth();
   const fs= firebase.firestore();
 
@@ -314,6 +326,7 @@
 
 
 <!--CUSTOM CODE-->
+<script src="login.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

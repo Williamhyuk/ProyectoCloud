@@ -1,144 +1,46 @@
-const loggedOutLinks=document.querySelectorAll('.logged-out')
-const loggedInLinks=document.querySelectorAll('.logged-in')
 
-//SignUp
-const signupForm= document.querySelector('#signup-form');
+var mainApp = {};
 
-signupForm.addEventListener('submit',(e)=>{
-    e.preventDefault();
+(function () {
+    var firebase = app_fireBase;
+    
+    
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            
 
-    const email= document.querySelector('#signup-email').value;
-    const password= document.querySelector('#signup-password').value;
 
-    console.log(email,password)
+            $("#inic").css("display", "none");
+            $("#nuev").css("display", "none");
+            $("#cerr").css("display", "block");
 
-    auth.createUserWithEmailAndPassword(email,password)
-        .then(userCredential =>{
-            //clear the form
-            signupForm.reset();
-            //close the mode
-            $('#SignUpModal').modal('hide');
-            location='index.html'
-            console.log('sing up');
+        }
+        else {
+            
+            //window.location.replace("index.html");
+            $("#inic").css("display", "block");
+            $("#nuev").css("display", "block");
+            $("#cerr").css("display", "none");
 
-        }).catch(error =>{
-            console.error(error);
-        })
- });
-
- //SignIn
- const signinForm = document.querySelector('#login-form')
-
- signinForm.addEventListener('submit',e=>{
-     e.preventDefault();
-    const email= document.querySelector('#login-email').value;
-    const password= document.querySelector('#login-password').value;
-     console.log(email,password)
-     auth
-        .signInWithEmailAndPassword(email,password)
-        .then(userCredential =>{
-            //clear the form
-            signinForm.reset();
-            //close the model
-            $('#SignInModal').modal('hide');
-            if ($('.modal-backdrop').is(':visible')) {
-                $('body').removeClass('modal-open'); 
-                $('.modal-backdrop').remove(); 
-              };
-            location='index.html'
-            console.log('sing in');
-
-        })
- });
-
- /*const logout = document.querySelector(`#logout`);
- 
- logout.addEventListener('click',e=>{
-    e.preventDefault();
-    auth.signOut().then(()=>{
-        console.log('sign out');
+        }
     });
- }); */
 
-//Google Login
-// el provider captara la solicitud hacia google
-const googleButton =document.querySelector('#googleLogin')
-googleButton.addEventListener('click', (e) =>{
-    //console.log('click google')
-    e.preventDefault();
-    signinForm.reset();
-    $("#SignInModal").modal("hide");
-    if ($('.modal-backdrop').is(':visible')) {
-        $('body').removeClass('modal-open'); 
-        $('.modal-backdrop').remove(); 
-      };
 
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then((result) => {
-        var user= result.user;
-        console.log(result);
-    console.log("google sign in");
-  })
-    .catch(err=>{
-    console.log(err);
-    })
-});
-
-//Facebook Login
-const facebookButton =document.querySelector('#facebookLogin')
-facebookButton.addEventListener('click',e=>{
-    e.preventDefault();
-    signinForm.reset();
-    $("#SignInModal").modal("hide");
-    if ($('.modal-backdrop').is(':visible')) {
-        $('body').removeClass('modal-open'); 
-        $('.modal-backdrop').remove(); 
-      };
-    console.log('Facebook login');
-
-    const provider=new firebase.auth.FacebookAuthProvider();
-    auth.signInWithPopup(provider).then(result=>{
-            console.log(result);
-            console.log("facebook sign in");
-
-        })
-        .catch(err=>{
-            console.log(err);
-        })
-
-})
-// Twitter login
-const twitterButton = document.querySelector('#twitterLogin')
-twitterButton.addEventListener('click',(e) => {
-    e.preventDefault();
-    signinForm.reset();
-    $("#SignInModal").modal("hide");
-    if ($('.modal-backdrop').is(':visible')) {
-        $('body').removeClass('modal-open'); 
-        $('.modal-backdrop').remove(); 
-      };
-    console.log('Twitter login');
-
-    var provider = new firebase.auth.TwitterAuthProvider();
-    auth.signInWithPopup(provider).then(result=>{
-        console.log(result);
-        console.log("twitter sign in");
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-
-})
-
+    function logOut() {
+        firebase.auth().signOut();
+        window.location.replace("index.html");
+    }
+    mainApp.logOut = logOut;
+})()
 
 
 // Posts
 const postList = document.querySelector('.posts');
-const setupPosts = data=>{
-    if(data.length){
-        let html ='';
+const setupPosts = data => {
+    if (data.length) {
+        let html = '';
         data.forEach(doc => {
-            const post=doc.data()
+            const post = doc.data()
             console.log(post)
             const li = `
             <li class="list-group-item list-group-item-action">
@@ -147,34 +49,34 @@ const setupPosts = data=>{
             </li>
           `;
             html += li;
-        }); 
-        postList.innerHTML =html;
-    } else{
+        });
+        postList.innerHTML = html;
+    } else {
         postList.innerHTML = '<p class="text-center">Inicie Sesión o Registrese para Ingresar</p>';
     }
 };
 
 //AgregarLibro
-const db=firebase.firestore()
-const taskForm =document.getElementById('task-form');
+const db = firebase.firestore()
+const taskForm = document.getElementById('task-form');
 
 
-taskForm.addEventListener('submit',async e=>{//capturamos lo que escribamos en el cuadro
+taskForm.addEventListener('submit', async e => {//capturamos lo que escribamos en el cuadro
     e.preventDefault();
 
-    const title=taskForm['task-title'].value;
-    const autor=taskForm['task-autor'].value;
-    const year=taskForm['task-year'].value;
-    
+    const title = taskForm['task-title'].value;
+    const autor = taskForm['task-autor'].value;
+    const year = taskForm['task-year'].value;
+
     await db.collection('libros').doc().set({
-        title:title,
-        autor:autor,
-        year:year,
+        title: title,
+        autor: autor,
+        year: year,
         //title;
         //description;
     })
 
-    console.log(title,autor,year)
+    console.log(title, autor, year)
 });
 
 //Consultar libro
@@ -191,31 +93,31 @@ db.collection("libros").doc("libros").onSnapshot((querySelector)=>{
 
 
 
-const taskFormConsult =document.getElementById('task-consult');
+const taskFormConsult = document.getElementById('task-consult');
 
-taskFormConsult.addEventListener('submit',async e=>{//capturamos lo que escribamos en el cuadro
+taskFormConsult.addEventListener('submit', async e => {//capturamos lo que escribamos en el cuadro
     e.preventDefault();
-    const title=taskFormConsult['task-title-consult'].value;
+    const title = taskFormConsult['task-title-consult'].value;
 
-    
-const query = await db
-      .collection('libros')
-      .where('title', '==', title)//si coincide con el titulo obtenga el documento
-      .get();
 
-tablaConsul.innerHTML=''; 
-query.forEach(querySnapshot => {
-    console.log(querySnapshot.data().autor)
-    
-    tablaConsul.innerHTML+=
-    `
+    const query = await db
+        .collection('libros')
+        .where('title', '==', title)//si coincide con el titulo obtenga el documento
+        .get();
+
+    tablaConsul.innerHTML = '';
+    query.forEach(querySnapshot => {
+        console.log(querySnapshot.data().autor)
+
+        tablaConsul.innerHTML +=
+            `
     <tr>
     <td>${querySnapshot.data().title}</td>
     <td>${querySnapshot.data().autor}</td>
     <td>${querySnapshot.data().year}</td>
     </tr>
     `
-    /*<th scope="row">${querySnapshot.data().id}</th>*/
+        /*<th scope="row">${querySnapshot.data().id}</th>*/
     })
 
 })
@@ -227,13 +129,13 @@ query.forEach(querySnapshot => {
         console.log("Current data: ", doc.data());
     });
 **/
-var tabla =document.getElementById('tabla');//guardamos los elemntos dentro de tabla
+var tabla = document.getElementById('tabla');//guardamos los elemntos dentro de tabla
 //db.collection("libros").get().then((querySelector)=>{//snapshot cada ves que haga cambio lo replicara en la web
-db.collection("libros").onSnapshot((querySelector)=>{
-tabla.innerHTML='';
-    querySelector.forEach((doc)=>{
+db.collection("libros").onSnapshot((querySelector) => {
+    tabla.innerHTML = '';
+    querySelector.forEach((doc) => {
         console.log(`${doc.id}=> ${doc.data().title}`);
-        tabla.innerHTML+=`
+        tabla.innerHTML += `
         <tr>
         <td>${doc.data().title}</td>
         <td>${doc.data().autor}</td>
@@ -248,16 +150,16 @@ tabla.innerHTML='';
 //Events
 //list for auth state changes
 auth.onAuthStateChanged(user => {
-    if(user){
-       // console.log('auth: signin')
-       fs.collection('posts')
-       .get()
-       .then((snapshot)=>{
-           setupPosts(snapshot.docs)
-           loginCheck(user);//cadavez que el estado cambie se verificara
-       })
- 
-    } else{
+    if (user) {
+        // console.log('auth: signin')
+        fs.collection('posts')
+            .get()
+            .then((snapshot) => {
+                setupPosts(snapshot.docs)
+                loginCheck(user);//cadavez que el estado cambie se verificara
+            })
+
+    } else {
         //console.log('auth: sign out')
         setupPosts([])
         loginCheck(user);
@@ -266,13 +168,13 @@ auth.onAuthStateChanged(user => {
 })
 
 
-const loginCheck=user =>{
-    if(user){
-        loggedOutLinks.forEach(link=>link.style.display='none')
-        loggedInLinks.forEach(link=>link.style.display='block')
-    }else{
-        loggedOutLinks.forEach(link=>link.style.display='block')
-        loggedInLinks.forEach(link=>link.style.display='none')
+const loginCheck = user => {
+    if (user) {
+        loggedOutLinks.forEach(link => link.style.display = 'none')
+        loggedInLinks.forEach(link => link.style.display = 'block')
+    } else {
+        loggedOutLinks.forEach(link => link.style.display = 'block')
+        loggedInLinks.forEach(link => link.style.display = 'none')
     }
 }
 

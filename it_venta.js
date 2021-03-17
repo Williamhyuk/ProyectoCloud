@@ -1,3 +1,47 @@
+var mainApp = {};
+
+(function(){
+  var firebase = app_fireBase;
+  var uid=null;
+  firebase.auth().onAuthStateChanged(function(user){
+      if(user){
+          uid=user.uid;
+
+      }
+      else
+      {
+          uid=null;
+          //window.location.replace("index.html");
+          $('#SignInModal').modal('show');
+
+          $('#SignInModal').on('hide.bs.modal', function(e){
+
+            firebase.auth().onAuthStateChanged(function(user2){
+              if(!user2){
+                window.location.replace("index.html");
+              }
+              
+          });
+            
+            
+            
+            
+            
+        })
+          
+      }
+  });
+
+  
+
+  function logOut(){
+      firebase.auth().signOut();
+      window.location.replace("index.html");
+  }
+  mainApp.logOut=logOut;
+})()
+
+
 const db = firebase.firestore();
 
 const taskForm = document.getElementById("task-form");

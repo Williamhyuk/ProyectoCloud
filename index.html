@@ -27,6 +27,27 @@
     <link rel="stylesheet" href="css/custom.css" />
     <!-- wow Animation css -->
     <link rel="stylesheet" href="css/animate.css" />
+
+    <!--FIREBASE SCRIPTS-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!--Importamos Para la Autentificación-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+    <!--Importamos Para Almacenar informacion-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+    <!--Importamos Para el almacenamiento de Archivos-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 </head>
 <body>
 <!-- header -->
@@ -58,10 +79,14 @@
                         </ul>
                     </li>
                     <li>
-                        <a  href="#" data-toggle="modal" data-target="#SignInModal" ><i class="far fa-user"></i> Iniciar sesión</a>
+                        <a  href="#" data-toggle="modal" data-target="#SignInModal" id="inic"><i class="far fa-user"></i> Iniciar sesión</a>
                     </li>
                     <li>
-                        <a  href="#" data-toggle="modal" data-target="#SignUpModal" ><i class="far fa-user"></i> Registrarse</a>
+                        <a  href="#" data-toggle="modal" data-target="#SignUpModal" id="nuev"><i class="far fa-user"></i> Registrarse</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="mainApp.logOut()" id="cerr"><i class="far fa-user" id="cerr" ></i>
+                            Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -155,7 +180,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h1 style="color: #FFFFFF">VENDE Y COMPRA EN UN MISMO LUGAR</h1>
                 <a role="button" class="btn text-white newColorPurple btn-lg " href="it_shop.html">¡Quiero comprar!</a>
-                <a role="button" class="btn text-white newColorPurple btn-lg "  data-toggle="modal" data-target="#SignInModal">¡Quiero vender!</a>
+                <a role="button" class="btn text-white newColorPurple btn-lg " href="it_venta.html">¡Quiero vender!</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -204,23 +229,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
-<!--FIREBASE SCRIPTS-->
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<!--Importamos Para la Autentificación-->
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
-<!--Importamos Para Almacenar informacion-->
-
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
-
-<!--Importamos Para el almacenamiento de Archivos-->
-
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
 
 <script>
     // Your web app's Firebase configuration
@@ -233,8 +242,12 @@
         messagingSenderId: "444312263936",
         appId: "1:444312263936:web:68402c8d4f72bcc79267e5"
     };
+
+    
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    var app_fireBase = {};
+	app_fireBase = firebase;
     const auth = firebase.auth();
     const fs= firebase.firestore();
 
@@ -278,6 +291,7 @@
 
 
 <!--CUSTOM CODE-->
+<script src="login.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
